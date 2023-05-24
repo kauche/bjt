@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+
+  test:
+    permissions:
+      contents: 'read'
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        version:
+          - 1.19.9
+          - 1.20.4
+
+    steps:
+      - uses: actions/checkout@v3.5.2
+
+      - uses: actions/setup-go@v3.5.0
+        with:
+          go-version: ${{ matrix.version }}
+
+      - name: Test
+        run: |
+          go test -shuffle on -race ./...
