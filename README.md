@@ -4,7 +4,7 @@
 
 ## Supported Go version
 
-1.20 or higher.
+1.24 or higher.
 
 ## Usage
 

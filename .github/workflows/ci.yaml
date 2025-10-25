@@ -10,17 +10,18 @@ jobs:
   test:
     permissions:
       contents: 'read'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
         version:
-          - 1.20.4
+          - 1.24.9
+          - 1.25.3
 
     steps:
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - uses: actions/setup-go@v3.5.0
+      - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
         with:
           go-version: ${{ matrix.version }}
 
